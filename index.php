@@ -42,8 +42,35 @@ $db = new PDO('mysql:host=localhost;dbname=u47590', $user, $pass, array(PDO::ATT
 
 // Подготовленный запрос. Не именованные метки.
 try {
-  $stmt = $db->prepare("INSERT INTO application (name) SET name = ?");
-  $stmt -> execute(array($_POST['fio']));
+  $stmt = $db->prepare("INSERT INTO application (name, email, year, sex, limbs, ability_immortality, ability_pass_thr_walls, ability_levitation, bio, checkbox ) VALUES (:name, :email, :year, :sex, :limbs, :imm, :walls, :lev, :bio, :checkbox)");
+  $stmt -> bindParam(':name', $name);
+  $stmt -> bindParam(':email', $email);
+  $stmt -> bindParam(':year', $year);
+  $stmt -> bindParam(':sex', $sex);
+  $stmt -> bindParam(':limbs', $limbs);
+  $stmt -> bindParam(':imm', $imm);
+  $stmt -> bindParam(':walls', $walls);
+  $stmt -> bindParam(':lev', $lev);
+  $stmt -> bindParam(':bio', $bio);
+  $stmt -> bindParam(':checkbox', $checkbox);
+
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $year = $_POST['year'];
+  $sex = $_POST['radio-group-1'];
+  $limbs = $_POST['radio-group-2'];
+  $imm = 0;
+  $walls = 1;
+  $lev = 0;
+  $bio = $_POST['bio'];
+
+  if (empty($_POST['check']))
+    $checkbox = "No";
+  else
+    $checkbox = $_POST['check'];
+
+  
+  $stmt -> execute();
 }
 catch(PDOException $e){
   print('Error : ' . $e->getMessage());
