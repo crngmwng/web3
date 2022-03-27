@@ -75,11 +75,8 @@ try {
   $sex = $_POST['radio-group-1'];
   $limbs = $_POST['radio-group-2'];
 	
-if($_POST['power']=="immortality")
    $imm = $_POST['power'];
-if($_POST['power']=="pass_thr_walls")
    $walls = $_POST['power'];
-if($_POST['power']=="levitation")
    $lev = $_POST['power'];
 	
   $bio = $_POST['bio'];
