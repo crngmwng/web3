@@ -80,7 +80,7 @@ try {
     $nPow = count($pow);
     for($i=0; $i < $nPow; $i++)
     {
-     $imm = $pow[$i]
+     $imm = $pow[$i];
     }
    $walls = $_POST['power'];
    $lev = $_POST['power'];
