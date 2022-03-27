@@ -78,9 +78,17 @@ try {
   $year = $_POST['year'];
   $sex = $_POST['radio-group-1'];
   $limbs = $_POST['radio-group-2'];
-  $imm = 0;
-  $walls = 1;
-  $lev = 0;
+	
+$sel = isset($_POST['power']) ? $_POST['power'] : '';
+if($sel === 'immortality') {
+   $imm = "0";
+}
+if($sel === 'pass_thr_walls') {
+     $walls = "1";
+}
+if($sel === 'levitation') {
+   $lev = "0";
+}
   $bio = $_POST['bio'];
 
   if (empty($_POST['check-1']))
