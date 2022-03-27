@@ -24,23 +24,41 @@ if (empty($_POST['name'])) {
   print('Заполните имя.<br/>');
   $errors = TRUE;
 }
+if (!preg_match("/^[a-zа-яё]+$/i", $_POST['name'])){
+	echo "<script> alert('Вводите только буквы в поле Имя.');</script>";
+$errors = TRUE;
+}
 
-// *************
-// Тут необходимо проверить правильность заполнения всех остальных полей.
-// *************
 
+if (empty($_POST['email'])) {
+  print('Заполните email.<br/>');
+  $errors = TRUE;
+}
+
+if (!preg_match("/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/", $_POST['email'])){
+  echo "<script> alert('Невозможный email.');</script>";
+  $errors = TRUE;
+}
+
+if (empty($_POST['power'])) {
+  print('Выберете суперспособности.<br/>');
+  $errors = TRUE;
+}
+
+if (empty($_POST['bio'])) {
+  print('Заполните биографию.<br/>');
+  $errors = TRUE;
+}
 if ($errors) {
   // При наличии ошибок завершаем работу скрипта.
   exit();
 }
 
-// Сохранение в базу данных.
 
 $user = 'u47590';
 $pass = '3205407';
 $db = new PDO('mysql:host=localhost;dbname=u47590', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
 
-// Подготовленный запрос. Не именованные метки.
 try {
   $stmt = $db->prepare("INSERT INTO application (name, email, year, sex, limbs, ability_immortality, ability_pass_thr_walls, ability_levitation, bio, checkbox ) VALUES (:name, :email, :year, :sex, :limbs, :imm, :walls, :lev, :bio, :checkbox)");
   $stmt -> bindParam(':name', $name);
@@ -77,24 +95,4 @@ catch(PDOException $e){
   exit();
 }
 
-//  stmt - это "дескриптор состояния".
- 
-//  Именованные метки.
-//$stmt = $db->prepare("INSERT INTO test (label,color) VALUES (:label,:color)");
-//$stmt -> execute(array('label'=>'perfect', 'color'=>'green'));
- 
-//Еще вариант
-/*$stmt = $db->prepare("INSERT INTO users (firstname, lastname, email) VALUES (:firstname, :lastname, :email)");
-$stmt->bindParam(':firstname', $firstname);
-$stmt->bindParam(':lastname', $lastname);
-$stmt->bindParam(':email', $email);
-$firstname = "John";
-$lastname = "Smith";
-$email = "john@test.com";
-$stmt->execute();
-*/
-
-// Делаем перенаправление.
-// Если запись не сохраняется, но ошибок не видно, то можно закомментировать эту строку чтобы увидеть ошибку.
-// Если ошибок при этом не видно, то необходимо настроить параметр display_errors для PHP.
 header('Location: ?save=1');
