@@ -80,15 +80,12 @@ try {
   $limbs = $_POST['radio-group-2'];
 	
 $sel = isset($_POST['power']) ? $_POST['power'] : '';
-if($sel === 'immortality') {
-   $imm = '0';
-}
-if($sel === 'pass_thr_walls') {
-     $walls = '1';
-}
-if($sel === 'levitation') {
-   $lev = '2';
-}
+if($sel === 'immortality')
+   $imm = 1;
+if($sel === 'pass_thr_walls')
+     $walls = 1;
+if($sel === 'levitation') 
+   $lev = 1;
   $bio = $_POST['bio'];
 
   if (empty($_POST['check-1']))
