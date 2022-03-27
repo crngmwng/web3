@@ -84,7 +84,7 @@
             С контрактом ознакомлен
         </label><br />
 
-         <input type="submit" value="Отправить" />
+         <input type="submit" value="ok" />
 
     </form>
 
