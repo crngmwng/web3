@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <form action="/" method="POST">
+    <form action="" method="POST">
 
         <label>
             Имя:<br />
