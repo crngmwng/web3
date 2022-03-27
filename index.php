@@ -75,7 +75,13 @@ try {
   $sex = $_POST['radio-group-1'];
   $limbs = $_POST['radio-group-2'];
 	
-   $imm = $_POST['power'];
+	$pow = $_POST['power'];
+ 
+    $nPow = count($pow);
+    for($i=0; $i < $nPow; $i++)
+    {
+     $imm = $pow[$i]
+    }
    $walls = $_POST['power'];
    $lev = $_POST['power'];
 	
