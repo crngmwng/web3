@@ -77,7 +77,7 @@
 
         <label>
            Биография:<br />
-            <textarea name="bio">Напишите что-нибудь</textarea>
+            <textarea name="bio"></textarea>
         </label><br />
 
         <label><input type="checkbox" checked="checked" name="check-1" />
