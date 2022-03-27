@@ -73,20 +73,20 @@ try {
   $stmt -> bindParam(':bio', $bio);
   $stmt -> bindParam(':checkbox', $checkbox);
 
-  $name = $_POST["name"];
-  $email = $_POST["email"];
-  $year = $_POST["year"];
-  $sex = $_POST["radio-group-1"];
-  $limbs = $_POST["radio-group-2"];
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $year = $_POST['year'];
+  $sex = $_POST['radio-group-1'];
+  $limbs = $_POST['radio-group-2'];
   $imm = 0;
   $walls = 1;
   $lev = 0;
-  $bio = $_POST["bio"];
+  $bio = $_POST['bio'];
 
-  if (empty($_POST["check-1"]))
+  if (empty($_POST['check-1']))
     $checkbox = "No";
   else
-    $checkbox = $_POST["check-1"];
+    $checkbox = $_POST['check-1'];
 
   
   $stmt -> execute();
