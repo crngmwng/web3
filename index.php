@@ -40,10 +40,6 @@ if (!preg_match("/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z
   $errors = TRUE;
 }
 
-if (empty($_POST['power'])) {
-  print('Выберете суперспособности.<br/>');
-  $errors = TRUE;
-}
 
 if (empty($_POST['bio'])) {
   print('Заполните биографию.<br/>');
@@ -79,12 +75,8 @@ try {
   $sex = $_POST['radio-group-1'];
   $limbs = $_POST['radio-group-2'];
 	
-$sel = isset($_POST['power']) ? $_POST['power'] : '';
-if($sel === 'immortality')
    $imm = 1;
-if($sel === 'pass_thr_walls')
-     $walls = 1;
-if($sel === 'levitation') 
+   $walls = 1;
    $lev = 1;
   $bio = $_POST['bio'];
 
