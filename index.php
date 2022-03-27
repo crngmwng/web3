@@ -76,11 +76,12 @@ try {
   $limbs = $_POST['radio-group-2'];
 	
 if($_POST['power']=="immortality")
-   $imm = 0;
+   $imm = $_POST['power'];
 if($_POST['power']=="pass_thr_walls")
-   $walls = 0;
+   $walls = $_POST['power'];
 if($_POST['power']=="levitation")
-   $lev = 0;
+   $lev = $_POST['power'];
+	
   $bio = $_POST['bio'];
 
   if (empty($_POST['check-1']))
