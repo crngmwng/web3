@@ -75,11 +75,11 @@ try {
   $sex = $_POST['radio-group-1'];
   $limbs = $_POST['radio-group-2'];
 	
-if($_POST[power]=="immortality")
+if($_POST['power']=="immortality")
    $imm = 0;
-if($_POST[power]=="pass_thr_walls")
+if($_POST['power']=="pass_thr_walls")
    $walls = 0;
-if($_POST[power]=="levitation")
+if($_POST['power']=="levitation")
    $lev = 0;
   $bio = $_POST['bio'];
 
