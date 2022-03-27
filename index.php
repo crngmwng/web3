@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 // Проверяем ошибки.
 $errors = FALSE;
-if (empty($_POST['fio'])) {
+if (empty($_POST['name'])) {
   print('Заполните имя.<br/>');
   $errors = TRUE;
 }
