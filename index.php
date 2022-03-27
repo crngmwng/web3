@@ -81,13 +81,13 @@ try {
 	
 $sel = isset($_POST['power']) ? $_POST['power'] : '';
 if($sel === 'immortality') {
-   $imm = "0";
+   $imm = '0';
 }
 if($sel === 'pass_thr_walls') {
-     $walls = "1";
+     $walls = '1';
 }
 if($sel === 'levitation') {
-   $lev = "0";
+   $lev = '2';
 }
   $bio = $_POST['bio'];
 
